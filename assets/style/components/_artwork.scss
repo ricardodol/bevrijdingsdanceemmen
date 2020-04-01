@@ -1,0 +1,253 @@
+#artwork{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 5%;
+  bottom: 45%;
+  z-index: 15;
+  overflow: hidden;
+
+  &.frontpage{
+    top: 0;
+    bottom: 0;
+
+    .layer{
+      &.butterflies {
+        img {
+          &:nth-of-type(2) {
+            display: block;
+          }
+        }
+      }
+      &.title{
+        font-size: 20vw;
+        line-height: 20vw;
+      }
+      &.tickets{
+        display: block;
+        z-index: 6;
+        bottom: 8.5%;
+        left: 50%;
+        transform: translate(-50%, 0) scale(1);
+        white-space: nowrap;
+      }
+    }
+  }
+  .layer{
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    img{
+      height: 100%;
+      width: auto;
+    }
+    &.butterflies{
+      z-index: 6;
+      left: -15%;
+      right: -15%;
+      top: 0;
+      bottom: 0;
+      transform: translate(0);
+
+      img{
+        position: absolute;
+        height: auto;
+        transform-origin: center;
+
+        &:nth-of-type(1){
+          left: 0;
+          top: 35%;
+          transform: scale(0.5);
+        }
+        &:nth-of-type(2){
+          display: none;
+          left: 0;
+          top: 25%;
+          transform: scale(0.5);
+        }
+        &:nth-of-type(3){
+          left: 0;
+          top: 10%;
+          transform: scale(0.25) rotate(45deg);
+        }
+        &:nth-of-type(4){
+          right: 5%;
+          top: 5%;
+          transform: scale(0.25) rotate(55deg);
+        }
+        &:nth-of-type(5){
+          right: 3%;
+          bottom: 25%;
+          transform: scale(0.25) rotate(55deg);
+        }
+      }
+    }
+    &.tickets{
+      display: none;
+    }
+    &.lion{
+      z-index: 5;
+      height: 65%;
+      left: 50%;
+      top: 52%;
+
+      .mask{
+        z-index: 5;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: white;
+        opacity: 0;
+        mask: url("../img/lion.png") center;
+        mask-size: contain;
+        -webkit-mask: url("../img/lion.png") center;
+        -webkit-mask-size: contain;
+      }
+    }
+    &.gashorns{
+      height: 75%;
+      z-index: 4;
+      left: 41.5%;
+      top: 69%;
+
+      img{
+        transform-origin: center;
+        animation: toet 10s infinite ease-in-out;
+      }
+      .mask{
+        z-index: 5;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: white;
+        opacity: 0;
+        mask: url("../img/gashorns.png") center;
+        mask-size: contain;
+        -webkit-mask: url("../img/gashorns.png") center;
+        -webkit-mask-size: contain;
+        transform-origin: center;
+        animation: toet 10s infinite ease-in-out;
+      }
+      @keyframes toet {
+        46% {transform: scale3d(1, 1, 1)}
+        48% {transform: scale3d(1.1, 1.1, 1)}
+        50% {transform: scale3d(1, 1, 1)}
+        52% {transform: scale3d(1.1, 1.1, 1)}
+        54% {transform: scale3d(1, 1, 1)}
+      }
+    }
+    &.windmill{
+      z-index: 3;
+      right: -15%;
+      bottom: -7%;
+      transform: translate(0) scale(0.5);
+    }
+    &.shadow{
+      z-index: 1;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0) scale(0.5);
+
+      ellipse{
+        fill:  $color__main-1;
+        opacity: 0.1;
+        transform-origin: center;
+        animation: shadow 4s infinite ease;
+
+        &:last-of-type{
+          animation: shadow 4s infinite 0.1s ease;
+        }
+      }
+      @keyframes shadow {
+        0.00% {transform: scale3d(1, 1, 1)}
+        40% {transform: scale3d(0, 0, 1)}
+        60% {transform: scale3d(0, 0, 1)}
+        100% {transform: scale3d(1, 1, 1)}
+      }
+    }
+    &.title{
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      color: $color__light;
+      margin: 0;
+      font-size: 17vw;
+      font-family: 'Bungee', cursive;
+      opacity: 0.5;
+      text-align: center;
+      line-height: 17vw;
+      transform-origin: center;
+    }
+  }
+  @include respond-to(medium-up){
+    &.frontpage{
+      bottom: 0;
+
+      .layer{
+        &.title{
+          font-size: 13vw;
+          line-height: 13vw;
+        }
+        &.tickets{
+          transform: translate(-50%, 0) scale(1.2);
+        }
+      }
+    }
+
+    .layer{
+      &.butterflies{
+        left: 15%;
+        right: 15%;
+
+        img{
+          &:nth-of-type(1){
+            transform: scale(0.9);
+          }
+          &:nth-of-type(2){
+            transform: scale(0.9);
+          }
+          &:nth-of-type(3){
+            transform: scale(0.5) rotate(45deg);
+          }
+          &:nth-of-type(4){
+            transform: scale(0.5) rotate(55deg);
+          }
+          &:nth-of-type(5){
+            transform: scale(0.5) rotate(55deg);
+          }
+        }
+      }
+      //&.tickets{
+      //  bottom: 2%;
+      //  transform: translate(-50%, 0) scale(1);
+      //}
+      &.lion{
+        height: 75%;
+      }
+      &.gashorns{
+        height: 85%;
+        left: 47%;
+        top: 69%;
+      }
+      &.windmill{
+        right: 5%;
+        bottom: 1%;
+        transform: translate(0) scale(1);
+      }
+      &.shadow{
+        bottom: 2%;
+        transform: translate(-50%, 0) scale(1);
+      }
+      &.title{
+        font-size: 7vw;
+        line-height: 7vw;
+      }
+    }
+  }
+}

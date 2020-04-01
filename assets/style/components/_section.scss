@@ -1,0 +1,8 @@
+section{
+  padding: 6em 0;
+
+  &.invert{
+    background: url("../img/bg.jpg") center center no-repeat;
+    color: $color__light;
+  }
+}

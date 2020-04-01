@@ -1,0 +1,7 @@
+#tickets{
+  text-align: center;
+
+  @include respond-to(medium-up){
+    text-align: left;
+  }
+}

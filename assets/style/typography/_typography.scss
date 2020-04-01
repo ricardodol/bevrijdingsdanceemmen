@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Cabin:400,700&display=swap');
+
+*{
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  font-family: 'Cabin', sans-serif;
+  //font-family: 'Bungee', cursive;
+  //font-family: 'Bungee Hairline', cursive;
+  color: $color__dark;
+  font-size: 1.2em;
+}
+
+h1, h2, h3, h4{
+  font-family: 'Bungee', cursive;
+}
+
+h1, h2{
+  margin-top: 0;
+  color: $color__main-1;
+  text-align: center;
+
+  @include respond-to(medium-up){
+    text-align: left;
+  }
+}
+
+h3, h4{
+
+}
+
+section.invert{
+  h1, h2{
+    color: $color__light;
+  }
+}
+
+.subtitle{
+  font-size: 1.2em;
+  font-family: 'Bungee Hairline', cursive;
+  margin: 0;
+  text-align: center;
+
+  @include respond-to(medium-up){
+    text-align: left;
+  }
+}
+
+p{
+  line-height: 1.8em;
+}
+
+a{
+  text-decoration: none;
+
+  &:hover{
+  }
+}
+
+p a{
+  text-decoration: none;
+  color: $color__main-1;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.button{
+  font-family: 'Bungee', cursive;
+  padding: 0.5em 1em;
+  border-radius: 0.2em;
+  transition: all ease .2s;
+  text-align: center;
+
+  &.white{
+    background: $color__light;
+    color: $color__main-1;
+    box-shadow: 0 0 1.5em rgba($color__main-1, 0.1);
+
+    &:hover{
+      box-shadow: 0 0 1.5em rgba($color__main-1, 0.5);
+      transform: scale(1.1);
+    }
+  }
+  &.orange{
+    background: $color__main-1;
+    color: $color__light;
+    box-shadow: 0 0 1.5em rgba($color__main-1, 0.1);
+
+    &:hover{
+      box-shadow: 0 0 1.5em rgba($color__main-1, 0.5);
+      transform: scale(1.1);
+    }
+  }
+}
+
+button{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+@include respond-to(medium-up){
+  h1, h2{
+    font-size: 3.2em;
+  }
+
+  .subtitle{
+    font-size: 1.8em;
+  }
+}

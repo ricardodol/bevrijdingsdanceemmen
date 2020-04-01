@@ -1,0 +1,223 @@
+header{
+  position: relative;
+  min-height: 50vh;
+  background: url("../img/bg.jpg") center center no-repeat;
+  background-size: cover;
+  color: $color__light;
+
+  &.frontpage{
+    min-height: 98vh;
+  }
+  nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: transparent;
+
+    .container-fluid{
+      flex-direction: row;
+    }
+    #logo{
+      padding: 1em 0 0.75em 0;
+      width: 10em;
+
+      a{
+        display: block;
+
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    aside{
+      flex: 1 1 auto;
+      position: relative;
+      margin: 0.5em 0 0.5em 3em;
+      display: flex;
+      align-items: center;
+      font-family: 'Bungee', cursive;
+
+      a{
+        padding: 0.5em 1em;
+        color: $color__light;
+        text-decoration: none;
+        position: relative;
+
+        &::after{
+          content: "";
+          position: absolute;
+          transition: all 0.2s linear;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 0.2em;
+          height: 0.15em;
+          width: 0;
+          background: $color__main-1;
+        }
+        &:hover{
+          &::after{
+            width: 80%;
+          }
+        }
+      }
+      .main{
+        display: flex;
+        align-items: center;
+      }
+      .socialmedia{
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        p{
+          margin: 0 0.5em 0 0;
+        }
+        a{
+          padding: 0.5em;
+        }
+      }
+      &::after{
+        content: '';
+        left: -1em;
+        top: 50%;
+        bottom: 0.25em;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 1.5em;
+        background: $color__light;
+        position: absolute;
+      }
+    }
+    .navbar-toggle, .aside-logo{
+      display: none;
+    }
+    @include respond-to(medium-down){
+      .container-fluid{
+        justify-content: center;
+      }
+      #logo{
+        width: 8em;
+      }
+      aside{
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        min-width: 50%;
+        z-index: 5;
+        flex-direction: column;
+        align-items: flex-start;
+        background: $color__light;
+        margin: 0;
+        transform: translateX(-100%);
+        transition: all ease .2s;
+
+        .aside-logo{
+          display: block;
+          margin-bottom: 2em;
+          height: 6em;
+
+          img{
+            height: 100%;
+            width: auto;
+          }
+        }
+        a, p{
+          color: $color__main-1;
+        }
+        &.active{
+          transform: translateX(0);
+
+          .main{
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .socialmedia{
+            margin: auto 0 0 0;
+            padding: .5em 1em;
+          }
+
+        }
+        &::after{
+          content: none;
+        }
+      }
+      .navbar-toggle{
+        display: block;
+        position: absolute;
+        top: 1em;
+        right: 0.5em;
+        width: 2em;
+        height: 0.9em;
+        z-index: 100;
+        margin-left: 1em;
+        padding: 1em 0;
+
+        span{
+          position: absolute;
+          right: 0;
+          width: 100%;
+          height: 4px;
+          background-color: $color__light;
+          border-radius: 2px;
+          display: block;
+          transition: 0.4s transform cubic-bezier(1, 0, 0, 1),0.45s background-color cubic-bezier(1, 0, 0, 1);
+          -webkit-transition: 0.4s transform cubic-bezier(1, 0, 0, 1),0.45s background-color cubic-bezier(1, 0, 0, 1);
+          pointer-events: none;
+
+          &:first-of-type{
+            top: 0.5em;
+            width: 65%;
+          }
+          &:last-of-type{
+            bottom: 0.5em;
+          }
+        }
+        @include respond-to(medium-up){
+          &:not(.active):hover{
+            span{
+              &:first-of-type{
+                transform: translateY(8px);
+                -webkit-transform: translateY(8px);
+              }
+              &:last-of-type{
+                transform: translateY(-8px);
+                -webkit-transform: translateY(-8px);
+              }
+            }
+          }
+        }
+        &.active{
+          span{
+            &:first-of-type{
+              transform: translateY(8px) rotate(45deg);
+              -webkit-transform: translateY(8px) rotate(45deg);
+              width: 100%;
+            }
+            &:last-of-type{
+              transform: translateY(-7px) rotate(-45deg);
+              -webkit-transform: translateY(-7px) rotate(-45deg);
+            }
+          }
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    height: 100%;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    background: url("../img/arch.svg") bottom center no-repeat;
+    background-size: contain;
+  }
+}

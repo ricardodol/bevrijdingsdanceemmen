@@ -1,0 +1,44 @@
+#contact{
+  .contactform{
+    form{
+      display: flex;
+      flex-direction: column;
+
+      input:not(.button), textarea{
+        margin-bottom: 1em;
+        width: 100%;
+        padding: 1em;
+        box-sizing: border-box;
+        border: 1px rgba($color__main-1, 0.25) solid;
+        border-radius: 0.2em;
+        background: $color__light;
+        box-shadow: 0 0 1.5em rgba($color__main-1, 0.1);
+
+        &:focus{
+          outline: none;
+          box-shadow: 0 0 1em rgba($color__main-1, 0.25);
+        }
+      }
+      textarea{
+        height: 10em;
+      }
+      .button{
+        cursor: pointer;
+        width: 100%;
+        border: none;
+      }
+    }
+  }
+  .recaptcha{
+    font-size: 0.8rem;
+    opacity: 0.8;
+
+    a{
+      text-decoration: underline;
+    }
+  }
+}
+
+.grecaptcha-badge {
+  display: none;
+}

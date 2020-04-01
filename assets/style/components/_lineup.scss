@@ -1,0 +1,60 @@
+#lineup{
+  text-align: center;
+
+  .lineup{
+    .artist{
+      padding: 1em;
+
+      img{
+        width: 100%;
+        height: auto;
+        box-shadow: 0 0 1.5em rgba($color__main-1, 0.1);
+        transition: all ease .2s;
+      }
+    }
+  }
+  @include respond-to(medium-up){
+    text-align: left;
+
+    .artist{
+      margin-top: 5em;
+
+      h3{
+        overflow: hidden;
+
+        &::before{
+          content: '\f0da';
+          font-family: 'FontAwesome';
+          display: inline-block;
+          margin-left: -0.75em;
+          width: 0.75em;
+          transition: all ease .2s;
+        }
+      }
+      &:hover{
+        img{
+          box-shadow: 0 0 1.5em rgba($color__main-1, 0.5);
+          transform: scale(1.1) rotate(3deg);
+        }
+        h3{
+          &::before{
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    .lineup{
+      .col-3{
+        &:nth-child(3n+1) .artist {
+          margin-top: 2.5em;
+        }
+        &:nth-child(3n+2) .artist {
+          //margin-top: 5em;
+        }
+        &:nth-child(3n+3) .artist {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
