@@ -682,12 +682,14 @@
   top: 0;
   bottom: 0;
 }
-#artwork.frontpage .layer.butterflies img:nth-of-type(2) {
-  display: block;
-}
 #artwork.frontpage .layer.title {
   font-size: 20vw;
   line-height: 20vw;
+}
+#artwork.frontpage .layer.flags {
+  left: 0;
+  right: 0;
+  top: 32%;
 }
 #artwork.frontpage .layer.tickets {
   display: block;
@@ -705,55 +707,39 @@
   height: 100%;
   width: auto;
 }
-#artwork .layer.butterflies {
-  z-index: 6;
-  left: -15%;
-  right: -15%;
-  top: 0;
+#artwork .layer.flags {
+  z-index: 3;
+  left: 20%;
+  right: 20%;
+  top: 38%;
   bottom: 0;
   transform: translate(0);
 }
-#artwork .layer.butterflies img {
+#artwork .layer.flags img {
   position: absolute;
   height: auto;
   transform-origin: center;
 }
-#artwork .layer.butterflies img:nth-of-type(1) {
+#artwork .layer.flags img:nth-of-type(1) {
   left: 0;
-  top: 35%;
-  transform: scale(0.5);
+  top: 0;
+  height: 40%;
 }
-#artwork .layer.butterflies img:nth-of-type(2) {
-  display: none;
-  left: 0;
-  top: 25%;
-  transform: scale(0.5);
-}
-#artwork .layer.butterflies img:nth-of-type(3) {
-  left: 0;
-  top: 10%;
-  transform: scale(0.25) rotate(45deg);
-}
-#artwork .layer.butterflies img:nth-of-type(4) {
-  right: 5%;
-  top: 5%;
-  transform: scale(0.25) rotate(55deg);
-}
-#artwork .layer.butterflies img:nth-of-type(5) {
-  right: 3%;
-  bottom: 25%;
-  transform: scale(0.25) rotate(55deg);
+#artwork .layer.flags img:nth-of-type(2) {
+  right: 0;
+  top: 0;
+  height: 40%;
 }
 #artwork .layer.tickets {
   display: none;
 }
-#artwork .layer.lion {
-  z-index: 5;
-  height: 65%;
+#artwork .layer.logo-partly {
+  z-index: 4;
+  height: 40%;
   left: 50%;
   top: 52%;
 }
-#artwork .layer.lion .mask {
+#artwork .layer.logo-partly .mask {
   z-index: 5;
   content: "";
   position: absolute;
@@ -763,60 +749,10 @@
   bottom: 0;
   background: white;
   opacity: 0;
-  mask: url("../img/lion.png") center;
+  mask: url("../img/logo-partly.png") center;
   mask-size: contain;
-  -webkit-mask: url("../img/lion.png") center;
+  -webkit-mask: url("../img/logo-partly.png") center;
   -webkit-mask-size: contain;
-}
-#artwork .layer.gashorns {
-  height: 75%;
-  z-index: 4;
-  left: 41.5%;
-  top: 69%;
-}
-#artwork .layer.gashorns img {
-  transform-origin: center;
-  animation: toet 10s infinite ease-in-out;
-}
-#artwork .layer.gashorns .mask {
-  z-index: 5;
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: white;
-  opacity: 0;
-  mask: url("../img/gashorns.png") center;
-  mask-size: contain;
-  -webkit-mask: url("../img/gashorns.png") center;
-  -webkit-mask-size: contain;
-  transform-origin: center;
-  animation: toet 10s infinite ease-in-out;
-}
-@keyframes toet {
-  46% {
-    transform: scale3d(1, 1, 1);
-  }
-  48% {
-    transform: scale3d(1.1, 1.1, 1);
-  }
-  50% {
-    transform: scale3d(1, 1, 1);
-  }
-  52% {
-    transform: scale3d(1.1, 1.1, 1);
-  }
-  54% {
-    transform: scale3d(1, 1, 1);
-  }
-}
-#artwork .layer.windmill {
-  z-index: 3;
-  right: -15%;
-  bottom: -7%;
-  transform: translate(0) scale(0.5);
 }
 #artwork .layer.shadow {
   z-index: 1;
@@ -865,43 +801,29 @@
     bottom: 0;
   }
   #artwork.frontpage .layer.title {
-    font-size: 13vw;
-    line-height: 13vw;
+    font-size: 12vw;
+    line-height: 12vw;
+  }
+  #artwork.frontpage .layer.flags {
+    left: 30%;
+    right: 30%;
   }
   #artwork.frontpage .layer.tickets {
     transform: translate(-50%, 0) scale(1.2);
   }
-  #artwork .layer.butterflies {
-    left: 15%;
-    right: 15%;
+  #artwork .layer.flags {
+    left: 34%;
+    right: 34%;
+    top: 20%;
   }
-  #artwork .layer.butterflies img:nth-of-type(1) {
-    transform: scale(0.9);
+  #artwork .layer.flags img:nth-of-type(1) {
+    height: auto;
   }
-  #artwork .layer.butterflies img:nth-of-type(2) {
-    transform: scale(0.9);
+  #artwork .layer.flags img:nth-of-type(2) {
+    height: auto;
   }
-  #artwork .layer.butterflies img:nth-of-type(3) {
-    transform: scale(0.5) rotate(45deg);
-  }
-  #artwork .layer.butterflies img:nth-of-type(4) {
-    transform: scale(0.5) rotate(55deg);
-  }
-  #artwork .layer.butterflies img:nth-of-type(5) {
-    transform: scale(0.5) rotate(55deg);
-  }
-  #artwork .layer.lion {
-    height: 75%;
-  }
-  #artwork .layer.gashorns {
-    height: 85%;
-    left: 47%;
-    top: 69%;
-  }
-  #artwork .layer.windmill {
-    right: 5%;
-    bottom: 1%;
-    transform: translate(0) scale(1);
+  #artwork .layer.logo-partly {
+    height: 66%;
   }
   #artwork .layer.shadow {
     bottom: 2%;
@@ -936,7 +858,7 @@ header nav .container-fluid {
 }
 header nav #logo {
   padding: 1em 0 0.75em 0;
-  width: 10em;
+  width: 8em;
 }
 header nav #logo a {
   display: block;
@@ -1007,7 +929,7 @@ header nav .navbar-toggle, header nav .aside-logo {
     justify-content: center;
   }
   header nav #logo {
-    width: 8em;
+    width: 6em;
   }
   header nav aside {
     position: fixed;

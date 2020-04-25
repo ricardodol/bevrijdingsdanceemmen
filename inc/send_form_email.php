@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     if ($recaptcha->score >= 0.5) {
         // Verified - send email
 
-        $email_to = "info@koningsfeestenemmen.nl";
-        $email_subject = "Koningsfeestenemmen.nl Contact formulier";
+        $email_to = "info@bevrijdingsdanceemmen.nl";
+        $email_subject = "Bevrijdingsdanceemmen.nl Contact formulier";
 
         function died($error) {
             // your error code can go here
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
         $email_message .= "Bericht: ".clean_string($message)."\n";
 
         // create email headers
-        $headers = 'From: info@koningsfeestenemmen.nl'."\r\n".
+        $headers = 'From: Bevrijdingsdance Emmen <info@bevrijdingsdanceemmen.nl>'."\r\n".
             'Reply-To: '.$email_from."\r\n" .
             'X-Mailer: PHP/' . phpversion();
         @mail($email_to, $email_subject, $email_message, $headers);

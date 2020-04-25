@@ -25,7 +25,7 @@ include_once './inc/header.php';
                     De directie, de eigenaren van de locatie, dan wel personen die op deze locatie werkzaam zijn, kunnen niet aansprakelijk geteld worden voor enig letsel en/of materiële dan wel immateriële schade die bezoekers van de locatie mochten ondervinden.
                 </li>
                 <li>
-                    De Koningsfeesten zijn voor alle leeftijden. De minimumleeftijd om zonder begeleiding van een meerderjarig persoon het festivalterrein op te gaan is 12 jaar.
+                    De Bevrijdingsdance is voor alle leeftijden. De minimumleeftijd om zonder begeleiding van een meerderjarig persoon het festivalterrein op te gaan is 12 jaar.
                 </li>
                 <li>
                     Het is niet toegestaan om tijdens het evenement in en uit te lopen.

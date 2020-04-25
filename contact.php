@@ -22,16 +22,17 @@ include_once './inc/send_form_email.php';
         js = d.createElement(s); js.id = id;
         js.src = 'https://connect.facebook.net/nl_NL/sdk/xfbml.customerchat.js';
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <!-- Your customer chat code -->
-<div class="fb-customerchat"
-     attribution=setup_tool
-     page_id="184468472179865"
-     theme_color="#FE7000"
-     logged_in_greeting="Hey Koning/Koningin! Waar kunnen wij jou mee helpen?"
-     logged_out_greeting="Hey Koning/Koningin! Waar kunnen wij jou mee helpen?">
-</div>
+<!--<div class="fb-customerchat"-->
+<!--     attribution=setup_tool-->
+<!--     page_id="184468472179865"-->
+<!--     theme_color="#FE7000"-->
+<!--     logged_in_greeting="Hey Koning/Koningin! Waar kunnen wij jou mee helpen?"-->
+<!--     logged_out_greeting="Hey Koning/Koningin! Waar kunnen wij jou mee helpen?">-->
+<!--</div>-->
 <main>
     <section id="contact">
         <div class="container">

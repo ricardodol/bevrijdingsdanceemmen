@@ -10,28 +10,29 @@ const nav = new TimelineMax({})
 // Artwork
 const artwork = new TimelineMax({})
     .to('#artwork .title, #artwork .shadow, #artwork .tickets', 0.3, {scale: 0}, 0)
-    .to('#artwork .lion .mask, #artwork .gashorns .mask', 2, {opacity: '1'}, 0)
-    .to('#artwork .lion, #artwork .gashorns', 0, {opacity: '0'}, 2);
+    .to('#artwork .logo-partly .mask', 2, {opacity: '1'}, 0)
+    .to('#artwork .logo-partly', 0, {opacity: '0'}, 2)
+    .to('#artwork .flags', 1, {left: 0, right: 0}, 0);
 
 if (Modernizr.mq('screen and (min-width: 1500px)')){
     // Artwork
     artwork
-        .to('#artwork .lion, #artwork .gashorns', 1, {height: '70%'}, 0)
-        .to('#artwork .butterflies', 1, {left: '3%', right: '3%'}, 0)
-        .to('#artwork .windmill', 1, {right: '-6%', bottom: '-1%'}, 0);
+        .to('#artwork .logo-partly', 1, {height: '40%'}, 0)
+        .to('#artwork .flags .flag-left', 1, {left: '90%'}, 0)
+        .to('#artwork .flags .flag-right', 1, {right: '90%'}, 0);
 
 }else if (Modernizr.mq('screen and (min-width: 992px)')){
     // Artwork
     artwork
-        .to('#artwork .lion, #artwork .gashorns', 1, {height: '70%'}, 0)
-        .to('#artwork .butterflies', 1, {left: '0%', right: '0%'}, 0)
-        .to('#artwork .windmill', 1, {right: '-7%', bottom: '-1%'}, 0);
+        .to('#artwork .logo-partly', 1, {height: '40%'}, 0)
+        .to('#artwork .flags .flag-left', 1, {left: '90%'}, 0)
+        .to('#artwork .flags .flag-right', 1, {right: '90%'}, 0);
 }else{
     // Artwork
     artwork
-        .to('#artwork .lion, #artwork .gashorns', 1, {height: '50%'}, 0)
-        .to('#artwork .butterflies', 1, {left: '-35%', right: '-40%'}, 0)
-        .to('#artwork .windmill', 1, {right: '-50%', bottom: '-10%'}, 0);
+        .to('#artwork .logo-partly', 1, {height: '30%'}, 0)
+        .to('#artwork .flags .flag-left', 1, {left: '90%'}, 0)
+        .to('#artwork .flags .flag-right', 1, {right: '90%'}, 0);
 }
 
 // Header

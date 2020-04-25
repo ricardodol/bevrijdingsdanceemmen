@@ -12,16 +12,14 @@
     bottom: 0;
 
     .layer{
-      &.butterflies {
-        img {
-          &:nth-of-type(2) {
-            display: block;
-          }
-        }
-      }
       &.title{
         font-size: 20vw;
         line-height: 20vw;
+      }
+      &.flags{
+        left: 0;
+        right: 0;
+        top: 32%;
       }
       &.tickets{
         display: block;
@@ -41,11 +39,11 @@
       height: 100%;
       width: auto;
     }
-    &.butterflies{
-      z-index: 6;
-      left: -15%;
-      right: -15%;
-      top: 0;
+    &.flags{
+      z-index: 3;
+      left: 20%;
+      right: 20%;
+      top: 38%;
       bottom: 0;
       transform: translate(0);
 
@@ -56,38 +54,22 @@
 
         &:nth-of-type(1){
           left: 0;
-          top: 35%;
-          transform: scale(0.5);
+          top: 0;
+          height: 40%;
         }
         &:nth-of-type(2){
-          display: none;
-          left: 0;
-          top: 25%;
-          transform: scale(0.5);
-        }
-        &:nth-of-type(3){
-          left: 0;
-          top: 10%;
-          transform: scale(0.25) rotate(45deg);
-        }
-        &:nth-of-type(4){
-          right: 5%;
-          top: 5%;
-          transform: scale(0.25) rotate(55deg);
-        }
-        &:nth-of-type(5){
-          right: 3%;
-          bottom: 25%;
-          transform: scale(0.25) rotate(55deg);
+          right: 0;
+          top: 0;
+          height: 40%;
         }
       }
     }
     &.tickets{
       display: none;
     }
-    &.lion{
-      z-index: 5;
-      height: 65%;
+    &.logo-partly{
+      z-index: 4;
+      height: 40%;
       left: 50%;
       top: 52%;
 
@@ -101,52 +83,11 @@
         bottom: 0;
         background: white;
         opacity: 0;
-        mask: url("../img/lion.png") center;
+        mask: url("../img/logo-partly.png") center;
         mask-size: contain;
-        -webkit-mask: url("../img/lion.png") center;
+        -webkit-mask: url("../img/logo-partly.png") center;
         -webkit-mask-size: contain;
       }
-    }
-    &.gashorns{
-      height: 75%;
-      z-index: 4;
-      left: 41.5%;
-      top: 69%;
-
-      img{
-        transform-origin: center;
-        animation: toet 10s infinite ease-in-out;
-      }
-      .mask{
-        z-index: 5;
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background: white;
-        opacity: 0;
-        mask: url("../img/gashorns.png") center;
-        mask-size: contain;
-        -webkit-mask: url("../img/gashorns.png") center;
-        -webkit-mask-size: contain;
-        transform-origin: center;
-        animation: toet 10s infinite ease-in-out;
-      }
-      @keyframes toet {
-        46% {transform: scale3d(1, 1, 1)}
-        48% {transform: scale3d(1.1, 1.1, 1)}
-        50% {transform: scale3d(1, 1, 1)}
-        52% {transform: scale3d(1.1, 1.1, 1)}
-        54% {transform: scale3d(1, 1, 1)}
-      }
-    }
-    &.windmill{
-      z-index: 3;
-      right: -15%;
-      bottom: -7%;
-      transform: translate(0) scale(0.5);
     }
     &.shadow{
       z-index: 1;
@@ -191,8 +132,12 @@
 
       .layer{
         &.title{
-          font-size: 13vw;
-          line-height: 13vw;
+          font-size: 12vw;
+          line-height: 12vw;
+        }
+        &.flags{
+          left: 30%;
+          right: 30%;
         }
         &.tickets{
           transform: translate(-50%, 0) scale(1.2);
@@ -201,44 +146,22 @@
     }
 
     .layer{
-      &.butterflies{
-        left: 15%;
-        right: 15%;
+      &.flags{
+        left: 34%;
+        right: 34%;
+        top: 20%;
 
         img{
           &:nth-of-type(1){
-            transform: scale(0.9);
+            height: auto;
           }
           &:nth-of-type(2){
-            transform: scale(0.9);
-          }
-          &:nth-of-type(3){
-            transform: scale(0.5) rotate(45deg);
-          }
-          &:nth-of-type(4){
-            transform: scale(0.5) rotate(55deg);
-          }
-          &:nth-of-type(5){
-            transform: scale(0.5) rotate(55deg);
+            height: auto;
           }
         }
       }
-      //&.tickets{
-      //  bottom: 2%;
-      //  transform: translate(-50%, 0) scale(1);
-      //}
-      &.lion{
-        height: 75%;
-      }
-      &.gashorns{
-        height: 85%;
-        left: 47%;
-        top: 69%;
-      }
-      &.windmill{
-        right: 5%;
-        bottom: 1%;
-        transform: translate(0) scale(1);
+      &.logo-partly{
+        height: 66%;
       }
       &.shadow{
         bottom: 2%;

@@ -12,7 +12,7 @@ include_once './inc/header.php';
             <p class="subtitle">Alles wat je wilt weten</p>
             <h1>Informatie</h1>
 
-            <p>De Bevrijdingsdance Emmen vinden plaats op <?= ucfirst(strftime('%A', strtotime('26-04-' . $eventYear)));?> 26 April van 17:00 tot 00:00 uur en op <?= ucfirst(strftime('%A', strtotime('27-04-' . $eventYear)));?> 27 April van 14:00 tot 00:00 uur op parkeerterrein De Vreding in het centrum van Emmen. Omdat iedereen de verjaardag van onze Koning wil vieren zijn de Koningsfeesten voor alle leeftijden. </p>
+            <p>De Bevrijdingsdance Emmen vindt plaats op <?= ucfirst(strftime('%A', strtotime('05-05-' . $eventYear)));?> 5 Mei van 17:00 tot 00:00 uur op parkeerterrein De Vreding in het centrum van Emmen. Omdat iedereen de bevrijding wil vieren is de Bevrijdingsdance voor alle leeftijden.</p>
 
             <div class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                 <div class="question">
@@ -57,7 +57,7 @@ include_once './inc/header.php';
                 <div class="question">
                     <h3  itemprop="name">Roken</h3>
                     <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p itemprop="text">De Koningsfeesten worden in de openlucht georganiseerd en dus mag er op het festivalterrein gerookt worden. </p>
+                        <p itemprop="text">De Bevrijdingsdance wordt in de openlucht georganiseerd en dus mag er op het festivalterrein gerookt worden. </p>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@ include_once './inc/header.php';
                 <div class="question">
                     <h3  itemprop="name">Het weer</h3>
                     <div class="answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p itemprop="text">Wij gaan er natuurlijk van uit dat het stralend weer zal zijn tijdens de Koningsfeesten! Maar omdat we het in Nederland nooit zeker weten is het verstandig om je voor te bereiden op ieder weertype. Draag laagjes kleding, zorg eventueel voor regenkleding en goede schoenen. Paraplu’s mogen niet meegenomen worden op het festivalterrein, poncho’s wel!  </p>
+                        <p itemprop="text">Wij gaan er natuurlijk van uit dat het stralend weer zal zijn tijdens de Bevrijdingsdance! Maar omdat we het in Nederland nooit zeker weten is het verstandig om je voor te bereiden op ieder weertype. Draag laagjes kleding, zorg eventueel voor regenkleding en goede schoenen. Paraplu’s mogen niet meegenomen worden op het festivalterrein, poncho’s wel!  </p>
                     </div>
                 </div>
             </div>
