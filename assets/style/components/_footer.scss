@@ -22,9 +22,16 @@ footer{
         padding-left: 1em;
 
         &::before{
-          content: '\f0da';
-          font-family: 'FontAwesome';
           display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+
+          font-family: 'Font Awesome 5 Pro';
+          font-weight: 900;
+          content: '\f0da';
+
           margin-left: -1em;
           width: 0.75em;
           transition: all ease .2s;

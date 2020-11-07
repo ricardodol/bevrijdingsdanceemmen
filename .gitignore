@@ -1,6 +1,26 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Sass template
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
+### Composer ###
+composer.phar
+/vendor/
+
+### Intellij ###
+/.idea/
+
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+.env.test
+.env*.local

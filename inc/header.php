@@ -51,8 +51,7 @@ $eventYear = 2020;
 
     <link rel="stylesheet" type="text/css" href="/assets/style/style.min.css?v=0.1">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-
-    <script src="https://kit.fontawesome.com/28adfb2000.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://fa.rd-designs.nl/css/all.min.css">
 
 </head>
 <body>
