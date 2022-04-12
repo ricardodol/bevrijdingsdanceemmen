@@ -1,11 +1,11 @@
 <?php
 setlocale(LC_ALL, 'nl_NL');
-$eventYear = 2020;
+$eventYear = 2023;
 ?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <!-- Created by RD-Designs - www.rd-designs.nl - Copyright Bevrijdingsdanceemmen -->
+    <!-- Created by Ricardo Dol - www.ricardodol.nl - Copyright Bevrijdingsdanceemmen -->
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -18,7 +18,7 @@ $eventYear = 2020;
     <meta charset="UTF-8">
 <!--    <meta name="description" content="Twee dagen lang oranje gekte! Op --><?//= ucfirst(strftime('%A', strtotime('26-04-' . $eventYear)));?><!-- 26 en --><?//= ucfirst(strftime('%A', strtotime('27-04-' . $eventYear)));?><!-- 27 April keren de Koningsfeesten namelijk weer terug naar parkeerterrein De Vreding in Emmen.">-->
     <meta name="keywords" content="Café de Zwetser, Zwetser, Emmen, Festival, Bevrijdingsdag, Bevrijding, Vrijheid, Liberation Day, Bevrijdingsdance Bevrijdingsdanceemmen, Dance, Feest">
-    <meta name="author" content="RD-Designs">
+    <meta name="author" content="Ricardo Dol">
     <link rel="canonical" href="https://bevrijdingsdanceemmen.nl" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

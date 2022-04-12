@@ -1,5 +1,5 @@
 // let date = new Date('2020-04-26T17:00:00');
-let date = moment('2020-05-05T17:00:00').tz('Europe/Amsterdam').format("YYYY-MM-DD HH:mm:ss");
+let date = moment('2023-05-05T17:00:00').tz('Europe/Amsterdam').format("YYYY-MM-DD HH:mm:ss");
 
 // Grab the current date
 let currentDate = new Date();
