@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_token'])) {
         try {
             $mail->setFrom('info@bevrijdingsdanceemmen.nl', 'Bevrijdingsdance Emmen');
             $mail->addAddress('info@bevrijdingsdanceemmen.nl');
-            $mail->addReplyTo($email);
+//            $mail->addReplyTo($email);
 
             $mail->isHTML(true);
             $mail->Subject = 'Bevrijdingsdance Emmen - Contact formulier';
