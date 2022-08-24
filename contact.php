@@ -3,7 +3,6 @@
 $pageName = 'Contact';
 
 include_once './inc/header.php';
-include_once './inc/send_form_email.php';
 
 ?>
 <!-- Load Facebook SDK for JavaScript -->
@@ -40,56 +39,33 @@ include_once './inc/send_form_email.php';
             <h1>Contact</h1>
 
             <div class="contactform">
-                <?php if($mailChecked): ?>
-
-                    <p><?= $mailMsg ?></p>
-
-                <?php else: ?>
-
-                    <p>
-                        U kunt contact opnemen met ons via onze socialmedia kanalen of door te mailen naar
-                        <span class="spamspan">
+                <p>
+                    U kunt contact opnemen met ons via onze socialmedia kanalen of door te mailen naar
+                    <span class="spamspan">
                             <span class="u">info</span>
                             [at]
                             <span class="d">bevrijdingsdanceemmen [dot] nl</span>
                         </span>
-                    </p>
+                </p>
 
-                    <form name="contactform" method="post" action="">
+                <p id="contactform_msg"></p>
 
-                        <input type="text" id="name" name="name" aria-label="Volledige naam" placeholder="Volledige naam" required>
+                <form id="contactform" name="contactform" method="post">
+                    <input type="text" id="name" name="name" placeholder="Volledige naam" required>
+                    <input type="email" id="email" name="email" placeholder="E-mail" required>
+                    <input type="text" id="subject" name="subject" placeholder="Onderwerp" required>
+                    <textarea id="message" name="message" placeholder="Bericht" required></textarea>
+                    <input class="button orange" type="submit" value="Versturen">
+                    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+                </form>
 
-                        <input type="email" id="email" name="email" aria-label="E-mail" placeholder="E-mail" required>
-
-                        <input type="text" id="subject" name="subject" aria-label="Onderwerp" placeholder="Onderwerp" required>
-
-                        <textarea id="message" name="message" aria-label="Bericht" placeholder="Bericht" required></textarea>
-
-                        <input class="button orange" type="submit" value="Versturen">
-
-                        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-
-                    </form>
-
-                    <p class="recaptcha">
-                        This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-                    </p>
-
-                <?php endif; ?>
+                <p class="recaptcha">
+                    This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
+                </p>
             </div>
         </div>
     </section>
 </main>
-
-<script src="https://www.google.com/recaptcha/api.js?render=6Le6AdoUAAAAAMLdutcDABEPCEqvCBM4EALYL5Y7"></script>
-<script>
-    grecaptcha.ready(function () {
-        grecaptcha.execute('6Le6AdoUAAAAAMLdutcDABEPCEqvCBM4EALYL5Y7', { action: 'contact' }).then(function (token) {
-            let recaptchaResponse = document.getElementById('recaptchaResponse');
-            recaptchaResponse.value = token;
-        });
-    });
-</script>
 
 <?php include_once './inc/footer.php'; ?>
 

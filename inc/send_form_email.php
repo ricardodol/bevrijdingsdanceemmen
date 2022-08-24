@@ -1,28 +1,25 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+use PHPMailer\PHPMailer\PHPMailer;
 
-    // Build POST request
-    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+require '../vendor/autoload.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_token'])) {
+    // reCAPTCHA
     $recaptcha_secret = '6Le6AdoUAAAAAMr4CFj4h3ZhP8FeBs2tmBbYKguA';
-    $recaptcha_response = $_POST['recaptcha_response'];
-
-    // Make and decode POST request
-    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha_token = $_POST['recaptcha_token'];
+    $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $recaptcha_secret . '&response=' . $recaptcha_token);
     $recaptcha = json_decode($recaptcha);
 
-    // Take action based on the score returned
-    if ($recaptcha->score >= 0.5) {
-        // Verified - send email
-
-        $email_to = "info@bevrijdingsdanceemmen.nl";
-        $email_subject = "Bevrijdingsdanceemmen.nl Contact formulier";
+    if ($recaptcha->score >= 0.5 && $recaptcha->success) {
+        // reCAPTCHA successful
+        // Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
 
         function died($error) {
-            // your error code can go here
-            echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-            echo "These errors appear below.<br /><br />";
-            echo $error."<br /><br />";
-            echo "Please go back and fix these errors.<br /><br />";
+            echo json_encode([
+                'error' => true,
+                'formMsg' => $error
+            ]);
             die();
         }
 
@@ -31,29 +28,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
             !isset($_POST['subject']) ||
             !isset($_POST['email']) ||
             !isset($_POST['message'])) {
-            died('We are sorry, but there appears to be a problem with the form you submitted.');
+            died('Het spijt ons, maar er lijkt een probleem te zijn met het ingevulde formulier.');
         }
 
-        $name = $_POST['name']; // required
-        $subject = $_POST['subject']; // required
-        $email_from = $_POST['email']; // required
-        $message = $_POST['message']; // required
+        // form fields
+        $name = $_POST['name'];
+        $subject = $_POST['subject'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
 
+        // validation
         $error_message = "";
-        $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
 
-        if(!preg_match($email_exp,$email_from)) {
-            $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
+        $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+        if(!preg_match($email_exp,$email)) {
+            $error_message .= 'Het e-mailadres dat u heeft ingevoerd, lijkt niet geldig te zijn.<br />';
         }
 
         $string_exp = "/^[A-Za-z .'-]+$/";
-
         if(!preg_match($string_exp,$name)) {
-            $error_message .= 'The First Name you entered does not appear to be valid.<br />';
+            $error_message .= 'De naam dat u heeft ingevoerd, lijkt niet geldig te zijn.<br />';
+        }
+
+        if(!preg_match($string_exp,$subject)) {
+            $error_message .= 'Het onderwerp dat u heeft ingevoerd, lijkt niet geldig te zijn.<br />';
         }
 
         if(strlen($message) < 2) {
-            $error_message .= 'The Comments you entered do not appear to be valid.<br />';
+            $error_message .= 'Het bericht dat u hebt ingevoerd, lijkt niet geldig te zijn.<br />';
         }
 
         if(strlen($error_message) > 0) {
@@ -65,24 +67,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
             return str_replace($bad,"",$string);
         }
 
+        $email_message = "";
         $email_message .= "Naam: ".clean_string($name)."\n";
-        $email_message .= "Email: ".clean_string($email_from)."\n";
+        $email_message .= "Email: ".clean_string($email)."\n";
         $email_message .= "Onderwerp: ".clean_string($subject)."\n";
         $email_message .= "Bericht: ".clean_string($message)."\n";
 
-        // create email headers
-        $headers = 'From: Bevrijdingsdance Emmen <info@bevrijdingsdanceemmen.nl>'."\r\n".
-            'Reply-To: '.$email_from."\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-        @mail($email_to, $email_subject, $email_message, $headers);
+        try {
+            $mail->setFrom('info@bevrijdingsdanceemmen.nl', 'Bevrijdingsdance Emmen');
+            $mail->addAddress('info@bevrijdingsdanceemmen.nl');
+            $mail->addReplyTo($email);
 
-        $mailChecked = true;
-        $mailMsg = 'Het bericht is succesvol verzonden. Wij nemen zo spoedig mogelijk contact met u op!';
+            $mail->isHTML(true);
+            $mail->Subject = 'Bevrijdingsdance Emmen - Contact formulier';
+            $mail->Body    = str_replace(["\r\n", "\n"], "<br/>", $email_message);
+            $mail->AltBody = $email_message;
+
+            $mail->send();
+
+            echo json_encode([
+                'error' => false,
+                'formMsg' => 'Het bericht is succesvol verzonden. Wij nemen zo spoedig mogelijk contact met u op!'
+            ]);
+        } catch (Exception $e) {
+            echo json_encode([
+                'error' => true,
+                'formMsg' => 'Oeps! Het bericht kon niet worden verzonden. Probeer het later opnieuw.'
+            ]);
+        }
     } else {
-        // Not verified - show form error
-
-        $mailChecked = true;
-        $mailMsg = 'Het bericht is niet verzonden doordat u niet voldoet aan de reCAPTCHA test.';
+        // reCAPTCHA score to low
+        echo json_encode([
+            'error' => true,
+            'formMsg' => 'Het bericht is niet verzonden doordat u niet voldoet aan de reCAPTCHA test.'
+        ]);
     }
-
 }

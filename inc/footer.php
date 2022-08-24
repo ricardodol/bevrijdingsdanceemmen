@@ -63,6 +63,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.27/moment-timezone-with-data.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Le6AdoUAAAAAMLdutcDABEPCEqvCBM4EALYL5Y7"></script>
 
 <script src="/assets/js/modernizr.min.js"></script>
 <script src="/assets/js/scrollMagic.min.js?v=1.0"></script>
@@ -73,5 +74,6 @@
 <script src="/assets/js/countdownClock.min.js?v=1.0"></script>
 <script src="/assets/js/FAQ.min.js?v=0.1"></script>
 <script src="/assets/js/info-modal.min.js?v=1.0"></script>
+<script src="/assets/js/recaptcha.min.js?v=1.0"></script>
 </body>
 </html>
